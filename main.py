@@ -1,46 +1,50 @@
-n = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]]
-win_indices = [[0, 0, 0], [1, 1, 1], [2, 2, 2], [0, 1, 2]]
+cells = ['7', '8', '9', '4', '5', '6', '1', '2', '3']
+win_indices = [
+    ['7', '8', '9'],
+    ['4', '5', '6'],
+    ['1', '2', '3'],
+    ['7', '4', '1'],
+    ['8', '5', '2'],
+    ['9', '6', '3'],
+    ['7', '5', '3'],
+    ['1', '5', '9']]
 X_ = []
 O_ = []
+player = 'X'
 
 def create_board(n):
-    j = 0
     print(f'-------------')
-    for i in range(3):
-        print(f'| {n[i][j]} | {n[i][j + 1]} | {n[i][j + 2]} |\n'
-              f'-------------')
+    print(f'| {n[0]} | {n[1]} | {n[2]} |')
+    print(f'-------------')
+    print(f'| {n[3]} | {n[4]} | {n[5]} |')
+    print(f'-------------')
+    print(f'| {n[6]} | {n[7]} | {n[8]} |')
+    print(f'-------------')
 
 
-create_board(n)
+create_board(cells)
 
-board_copy = n.copy()
+board_copy = cells.copy()
 
 
 def turn(a, player):
-    for i in range(3):
-        for j in range(3):
-            if a == board_copy[i][j]:
-                board_copy[i][j] = player
+    for i in range(0, 8):
+        if str(a) == board_copy[i]:
+            board_copy[i] = player
 
     win_check(board_copy)
     return board_copy
 
 def win_check(brd_copy):
     chk = []
-    for i in range(3):
-        for j in range(3):
-            if player == brd_copy[i][j]:
-                print(brd_copy[i])
-                chk.append(brd_copy[i][j])
-                break
+    for i in win_indices:
+        if player == brd_copy[i]:
+            print(brd_copy[i])
+            chk.append(brd_copy[i])
+            break
 
 
-player = 'X'
 while True:
-
     if player == 'X':
         player = 'O'
     else:
