@@ -1,13 +1,13 @@
 cells = ['7', '8', '9', '4', '5', '6', '1', '2', '3']
 win_indices = [
-    ['7', '8', '9'],
-    ['4', '5', '6'],
-    ['1', '2', '3'],
+    ['6', '7', '8'],
+    ['3', '4', '5'],
+    ['0', '1', '2'],
+    ['6', '3', '0'],
     ['7', '4', '1'],
     ['8', '5', '2'],
-    ['9', '6', '3'],
-    ['7', '5', '3'],
-    ['1', '5', '9']]
+    ['6', '4', '2'],
+    ['0', '4', '8']]
 X_ = []
 O_ = []
 player = 'X'
@@ -38,9 +38,9 @@ def turn(a, player):
 def win_check(brd_copy):
     chk = []
     for i in win_indices:
-        if player == brd_copy[i]:
-            print(brd_copy[i])
-            chk.append(brd_copy[i])
+        # print(brd_copy[int(i[0])], brd_copy[int(i[1])], brd_copy[int(i[2])])
+        if brd_copy[int(i[0])] == brd_copy[int(i[1])] == brd_copy[int(i[2])]:
+            print('win')
             break
 
 
