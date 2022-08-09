@@ -43,7 +43,7 @@ def turn(a, player, turn_count):
         if str(a) == board_copy[i]:
             board_copy[i] = player
             break
-    if turn_count == 5:
+    if turn_count >= 5:
         win_check(board_copy)
     return board_copy
 
