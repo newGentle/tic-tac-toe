@@ -101,6 +101,7 @@ while True:
         play_again = input('Хотите начать заново ? (y/n): ')
         play = True if play_again == 'y' else False
         game = False
+        win = False
 
     turn_count += 1
     if player == 'X':
