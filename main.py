@@ -84,6 +84,8 @@ while True:
 
     if not entered_number:  # ошибочно нажата кнопка enter
         continue
+    elif not entered_number.isdigit():
+        continue
     elif int(entered_number) not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:        # проверка на ошибочный ввод
         continue
     elif int(entered_number) in turn_check:
